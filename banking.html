@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+	let applicants = [
+		{
+			"accountHolderName":"Darshan",
+			"accountHolderType":"Savings",
+			"accountNumber":"12345",
+			"accountHolderEmail":"abc@gmail.com",
+			"payees":{
+				
+				"beneficiaryName":"abc",
+				"beneficiaryAccNumber":"23456",
+				"beneficiaryIFSCCode":"SBIN002",
+				"typeOfTransfer":"RTGS",
+				"beneficiaryBankName":"SBI",
+				"nickName":"ab"
+				
+			}
+		},
+		{
+			"accountHolderName":"Ajay",
+			"accountHolderType":"Current",
+			"accountNumber":"56789",
+			"accountHolderEmail":"def@gmail.com",
+			"payees":{
+				
+				"beneficiaryName":"def",
+				"beneficiaryAccNumber":"3456",
+				"beneficiaryIFSCCode":"ICICI2000",
+				"typeOfTransfer":"NEFT",
+				"beneficiaryBankName":"ICICI",
+				"nickName":"de"
+				
+			}
+		},
+		
+		{
+			"accountHolderName":"Pavan",
+			"accountHolderType":"Savings",
+			"accountNumber":"8976",
+			"accountHolderEmail":"abcdef@gmail.com",
+			"payees":{
+				
+				"beneficiaryName":"Sachin",
+				"beneficiaryAccNumber":"45678",
+				"beneficiaryIFSCCode":"AX0098",
+				"typeOfTransfer":"IMPS",
+				"beneficiaryBankName":"AXIS",
+				"nickName":"Sach"
+				
+			}
+		}
+	];
+	
+	for(i=0;i<3;i++)
+	{
+		document.writeln('<table border=5 cellspacing=10 cellpadding=10>');
+		
+		document.writeln('<tr>');
+		document.writeln('<th>Account Holder number</th>');
+		document.writeln('<th>Account Holder Type</th>');
+		document.writeln('<th>Account Number</th>');
+		document.writeln('<th>Account Holder Email</th>');
+		document.writeln('</tr>');	
+		
+		document.writeln('<tr>');
+		document.writeln('<td>'+applicants[i].accountHolderName+"</td>");
+		document.writeln('<td>'+applicants[i].accountHolderType+"</td>");
+		document.writeln('<td>'+applicants[i].accountName+"</td>");
+		document.writeln('<td>'+applicants[i].accountHolderEmail+"</td>");
+				
+		document.writeln('<td>');
+		
+		document.writeln('<tr>');
+		document.writeln('<th>Payees</th>');
+	document.writeln('</tr>');
+
+			document.writeln('<tr>');
+				document.writeln('<th>Beneficiary Name</th>');
+				document.writeln('<th>Beneficiary Account Number</th>');
+				document.writeln('<th>Beneficiary IFSC Code</th>');
+				document.writeln('<th>Type Of The Transfer</th>');
+				document.writeln('<th>Beneficiary Bank Name</th>');
+				document.writeln('<th>NickName</th>');
+			document.writeln('</tr>');	
+
+			document.writeln('<tr>');
+				document.writeln('<td>'+applicants[i].payees.beneficiaryName+"</td>");			
+				document.writeln('<td>'+applicants[i].payees.beneficiaryAccNumber+"</td>");			
+				document.writeln('<td>'+applicants[i].payees.beneficiaryIFSCCode+"</td>");			
+				document.writeln('<td>'+applicants[i].payees.typeOfTransfer+"</td>");			
+				document.writeln('<td>'+applicants[i].payees.beneficiaryBankName+"</td>");			
+				document.writeln('<td>'+applicants[i].payees.nickName+"</td>");			
+			document.writeln('</tr>');
+		
+		document.writeln('</table>');
+	
+	document.writeln('</td>');
+	
+document.writeln('</tr>');
+
+document.writeln('</table>');
+	}
+	
+	
+	
+
+</script>
+
+</body>
+</html>
