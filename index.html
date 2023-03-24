@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bank Portal</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+    	var req;
+    	
+    	function senInfo(){
+    		
+    		var bname=document.getElementById('name').value;
+    		console.log('s '+bname);
+    		
+    		var baccno=document.getElementById('acc_num').value;
+    		console.log('t '+baccno);
+    		
+    		var nickname=document.getElementById('nickname').value;
+    		console.log('a '+nickname);
+    		
+    		var bankname=document.getElementById('bank_name').value;
+    		console.log('a '+bankname);
+    		
+    		var bifsc=document.getElementById('ifsc_code').value;
+    		console.log('a '+bifsc);
+    		
+    		var useracc=document.getElementById('user_acc').value;
+    		console.log('a '+useracc);
+    		
+    		var dataToSend={
+    		        "beneficiaryAccountNumber": 34567,
+    		        "beneficiaryName": "ABC",
+    		        "nickName": "D",
+    		        "ifscCode": "RTE45",
+    		        "beneficiaryBankName": "RBI",
+    		        "userAccountnumber": 10001
+    		    }
+    		
+    		dataToSend.beneficiaryAccountNumber=baccno;
+    		dataToSend.beneficiaryName=bname;
+    		dataToSend.nickName=nickname;
+    		dataToSend.ifscCode=bifsc;
+    		dataToSend.beneficiaryBankName=bankname;
+    		dataToSend.userAccountnumber=useracc;
+    		
+    		console.log('data : '+JSON.stringify(dataToSend));
+
+    		
+    		var url='http://localhost:8080/BankingApplicationProject/bank/beneficiary/addBeneficiary'
+    		
+    		console.log('sendInfo: url : '+url);
+    		if(window.XMLHttpRequest) {
+    			request=new XMLHttpRequest();
+    		}
+    		else if(window.ActiveXObject) { 
+    			request=new ActiveXObject("Microsoft.XMLHTTP");
+    		}
+
+    		try
+    		{
+    			
+    			request.onreadystatechange=getInfo;
+    			request.open("POST",url,true);
+    			request.setRequestHeader("Content-Type","application/json");
+    			request.send(JSON.stringify(dataToSend));
+    		}
+    		catch(e)
+    		{
+    			
+    			alert("Unable to connect to server");
+    			
+    		}
+    	}
+    		
+    		function getInfo()
+    		{
+
+    			if(request.readyState==4) {
+    				console.log('status '+request.status);
+    				var val=request.responseText;
+    				document.getElementById('dataHere').innerHTML=val;
+    			}
+    		}
+
+    </script>
+
+  </head>
+  <body>
+  
+  
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Funds transfer</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Welcome to Bank Beneficiary portal</h1>
+      <p>Please add the beneficiary</p>
+    </main>
+    
+  
+  <div class="form-container">
+    <h2>Beneficiary Details Form</h2>
+    <form>
+      <label for="name">Beneficiary Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
+      
+      <label for="acc_num">Beneficiary Account Number:</label>
+      <input type="text" id="acc_num" name="acc_num" required><br><br>
+      
+      <label for="nickname">Nickname:</label>
+      <input type="text" id="nickname" name="nickname" required><br><br>
+      
+      <label for="bank_name">Bank Name:</label>
+      <input type="text" id="bank_name" name="bank_name" required><br><br>
+      
+      <label for="ifsc_code">Bank IFSC Code:</label>
+      <input type="text" id="ifsc_code" name="ifsc_code" required><br><br>
+      
+       <label for="user_acc">User Account Number</label>
+      <input type="text" id="user_acc" name="user_acc" required><br><br>
+      
+      <input type="submit" value="Submit" onClick="senInfo()"><br><br>
+    </form>
+  </div>
+Status <span id="dataHere"> </span>
+<a href="showbeneficiaries.html">Show beneficiaries</a><br>
+
+</body>
+</html>
+
+	
